@@ -1,0 +1,165 @@
+﻿@page "/rates"
+@using System.Text
+@using OfficeOpenXml
+@using server.Data
+@using server.Tools
+@attribute [StreamRendering]
+@inject IJSRuntime JS
+@inject NavigationManager _navigationManager
+
+@code {
+
+    private int currentCount = 0;
+    private int CountToRefreshPage = 300;
+    private IList<CurrencyRate>? CurrencyRates_CBK;
+    private IList<CurrencyRate>? CurrencyRates_CBR;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        CurrencyRates_CBK = await CurrencyRates.GetExchangeRatesFromCBK();
+        CurrencyRates_CBR = await CurrencyRates.GetExchangeRatesFromCBR();
+
+        var timer = new System.Threading.Timer((_) =>
+        {
+            InvokeAsync(async () =>
+            {
+                // Add your update logic here
+                IncrementCount();
+                // Update the UI
+
+                if (currentCount == 300)
+                {
+                    ReloadPage(_navigationManager);
+                }
+            });
+        }, null, 0, 1000);
+    }
+}
+
+<PageTitle>Курсы валют</PageTitle>
+
+<RadzenText TextStyle="TextStyle.H5">Курсы валют</RadzenText>
+
+<RadzenCard Variant="Variant.Filled">
+    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem">
+        <RadzenStack Gap="0">
+            <RadzenText TextStyle="TextStyle.Body1">Национальный банк Казахстана</RadzenText>
+            @if (CurrencyRates_CBK == null)
+            {
+                <p><em>Загрузка...</em></p>
+            }
+            else
+            {
+                <RadzenDataGrid Data="@CurrencyRates_CBK" typeof="CurrencyRate">
+                    <HeaderTemplate>
+                        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="1rem;" Wrap="FlexWrap.Wrap">
+                            <RadzenButton Text="Export XLS" Icon="grid_on" Click="@(argv => { ExportExcel(BankCountry.KAZAKHSTAN); })" />
+                        </RadzenStack>
+                    </HeaderTemplate>
+                    <Columns>
+                        <RadzenDataGridColumn Title="Описание" Property="@nameof(CurrencyRate.CurrencyName)"></RadzenDataGridColumn>
+                        <RadzenDataGridColumn Title="Название" Property="@nameof(CurrencyRate.CurrencyStringCode)"></RadzenDataGridColumn>
+                        <RadzenDataGridColumn Title="Курс" Property="@(nameof(CurrencyRate.ExchangeRate))">
+                            <Template Context="value">
+                                @String.Format("{0} тг.", value.ExchangeRate)
+                            </Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </RadzenDataGrid>
+            }
+        </RadzenStack>
+    </RadzenStack>
+</RadzenCard>
+<br />
+<RadzenCard Variant="Variant.Filled">
+    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem">
+        <RadzenStack Gap="0">
+            <RadzenText TextStyle="TextStyle.Body1">Центральный Банк России</RadzenText>
+            @if (CurrencyRates_CBK == null)
+            {
+                <p><em>Загрузка...</em></p>
+            }
+            else
+            {
+                <RadzenDataGrid Data="@CurrencyRates_CBR" typeof="CurrencyRate">
+                    <HeaderTemplate>
+                        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="1rem;" Wrap="FlexWrap.Wrap">
+                            <RadzenButton Text="Export XLS" Icon="grid_on" Click="@(argv => { ExportExcel(BankCountry.RUSSIA); })" />
+                        </RadzenStack>
+                    </HeaderTemplate>
+                    <Columns>
+                        <RadzenDataGridColumn Title="Описание" Property="@nameof(CurrencyRate.CurrencyName)"></RadzenDataGridColumn>
+                        <RadzenDataGridColumn Title="Название" Property="@nameof(CurrencyRate.CurrencyStringCode)"></RadzenDataGridColumn>
+                        <RadzenDataGridColumn Title="Курс" Property="@(nameof(CurrencyRate.ExchangeRate))">
+                            <Template Context="value">
+                                @String.Format("{0} руб.", value.ExchangeRate)
+                            </Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </RadzenDataGrid>
+            }
+        </RadzenStack>
+    </RadzenStack>
+</RadzenCard>
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+@functions{
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+    public enum BankCountry
+    {
+        KAZAKHSTAN,
+        RUSSIA
+    }
+    public async Task ExportExcel(BankCountry bc)
+    {
+        switch (bc)
+        {
+            case BankCountry.KAZAKHSTAN: await GenerateAndDownloadExcel(CurrencyRates_CBK, "Национальный Банк Казахстана.xlsx", " .тг"); break;
+            case BankCountry.RUSSIA: await GenerateAndDownloadExcel(CurrencyRates_CBR, "Центральный Банк России.xlsx", " .руб"); break;
+        }
+    }
+    public static void ReloadPage(NavigationManager manager)
+    {
+        manager.NavigateTo(manager.Uri, true);
+    }
+    private async Task GenerateAndDownloadExcel(IList<CurrencyRate> rates, string fileName, string postfixRate)
+    {
+        ExcelPackage.License.SetNonCommercialPersonal("Codepurgatory");
+        using (var package = new OfficeOpenXml.ExcelPackage())
+        {
+            var worksheet = package.Workbook.Worksheets.Add(DateTime.Now.ToString("yyyy.MM.dd HH-mm"));
+
+            worksheet.Columns[1].Width = 30;
+            worksheet.Columns[2].Width = 10;
+            worksheet.Columns[3].Width = 15;
+
+            worksheet.Cells[1, 1].Value = "Описание";
+            worksheet.Cells[1, 2].Value = "Название";
+            worksheet.Cells[1, 3].Value = "Курс";
+
+            for(int i=0; i < rates.Count; i++)
+            {
+                worksheet.Cells[i + 1, 2].Value = rates[i].CurrencyStringCode;
+                worksheet.Cells[i + 1, 1].Value = rates[i].CurrencyName;
+                worksheet.Cells[i + 1, 3].Value = rates[i].ExchangeRate + postfixRate;
+            }
+
+            var fileBytes = package.GetAsByteArray();
+            var fileUrl = $"data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{Convert.ToBase64String(fileBytes)}";
+
+            await JS.InvokeVoidAsync("saveAsFile", fileUrl, fileName);
+        }
+    }
+}

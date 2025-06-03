@@ -1,0 +1,12 @@
+﻿<RadzenSidebar Responsive="true" Style="width: 250px; background: #f8f9fa;">
+    <div class="rz-p-12 rz-text-align-center">
+        <RadzenLink Path="https://www.microsoft.com/" Text="Go to url" target="_blank">
+            <RadzenImage Path="https://cdn.worldvectorlogo.com/logos/microsoft-6.svg" Style="width: 100%">
+            </RadzenImage>
+        </RadzenLink>
+    </div>
+    <RadzenPanelMenu DisplayStyle="@(true ? MenuItemDisplayStyle.IconAndText : MenuItemDisplayStyle.Icon)" ShowArrow="false">
+        <RadzenPanelMenuItem Text="Главная" Icon="home" Path="/" />
+        <RadzenPanelMenuItem Text="Курс валют банков" Icon="dashboard" Path="rates" />
+    </RadzenPanelMenu>
+</RadzenSidebar>
