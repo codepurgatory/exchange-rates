@@ -198,7 +198,7 @@ namespace server.Tools
         {
             var client = new HttpClient();
             var response = await client.GetStringAsync(URL);
-            // Парсинг XML
+            await Task.Delay(500);
             var xmlDoc = XDocument.Parse(response);
             return xmlDoc;
         }

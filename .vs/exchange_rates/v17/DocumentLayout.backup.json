@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|c:\\users\\codepurgatory\\documents\\github\\exchange-rates\\server\\components\\pages\\rates.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|solutionrelative:server\\components\\pages\\rates.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|c:\\users\\codepurgatory\\documents\\github\\exchange-rates\\server\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|solutionrelative:server\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|c:\\users\\codepurgatory\\documents\\github\\exchange-rates\\server\\wwwroot\\js\\interop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|solutionrelative:server\\wwwroot\\js\\interop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\Components\\App.razor",
+              "RelativeDocumentMoniker": "server\\Components\\App.razor",
+              "ToolTip": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\Components\\App.razor",
+              "RelativeToolTip": "server\\Components\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-05T01:21:19.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "interop.js",
+              "DocumentMoniker": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\wwwroot\\js\\interop.js",
+              "RelativeDocumentMoniker": "server\\wwwroot\\js\\interop.js",
+              "ToolTip": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\wwwroot\\js\\interop.js",
+              "RelativeToolTip": "server\\wwwroot\\js\\interop.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-06-05T01:09:48.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Rates.razor",
+              "DocumentMoniker": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\Components\\Pages\\Rates.razor",
+              "RelativeDocumentMoniker": "server\\Components\\Pages\\Rates.razor",
+              "ToolTip": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\Components\\Pages\\Rates.razor",
+              "RelativeToolTip": "server\\Components\\Pages\\Rates.razor",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAIsAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-05T01:01:08.456Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

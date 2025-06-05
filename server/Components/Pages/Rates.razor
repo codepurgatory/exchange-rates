@@ -4,13 +4,14 @@
 @using server.Data
 @using server.Tools
 @attribute [StreamRendering]
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
 @inject IJSRuntime JS
 @inject NavigationManager _navigationManager
 
 @code {
 
     private int currentCount = 0;
-    private int CountToRefreshPage = 300;
+    private int CountToRefreshPage = 60;
     private IList<CurrencyRate>? CurrencyRates_CBK;
     private IList<CurrencyRate>? CurrencyRates_CBR;
 
@@ -28,9 +29,9 @@
                 IncrementCount();
                 // Update the UI
 
-                if (currentCount == 300)
+                if (currentCount == CountToRefreshPage)
                 {
-                    ReloadPage(_navigationManager);
+                    DataUpdate();
                 }
             });
         }, null, 0, 1000);
@@ -38,9 +39,12 @@
 }
 
 <PageTitle>Курсы валют</PageTitle>
+<HeadOutlet @rendermode="new InteractiveServerRenderMode(prerender: false)" />
 
 <RadzenText TextStyle="TextStyle.H5">Курсы валют</RadzenText>
-
+<RadzenButton Text="Обновить данные" Icon="grid_on" Click="DataUpdate" />
+<br />
+<br />
 <RadzenCard Variant="Variant.Filled">
     <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem">
         <RadzenStack Gap="0">
@@ -54,7 +58,7 @@
                 <RadzenDataGrid Data="@CurrencyRates_CBK" typeof="CurrencyRate">
                     <HeaderTemplate>
                         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="1rem;" Wrap="FlexWrap.Wrap">
-                            <RadzenButton Text="Export XLS" Icon="grid_on" Click="@(argv => { ExportExcel(BankCountry.KAZAKHSTAN); })" />
+                            <RadzenButton Text="Скачать XLS" Icon="grid_on" Click="DownloadKAZ" onclick="DownloadKAZ" />
                         </RadzenStack>
                     </HeaderTemplate>
                     <Columns>
@@ -85,7 +89,7 @@
                 <RadzenDataGrid Data="@CurrencyRates_CBR" typeof="CurrencyRate">
                     <HeaderTemplate>
                         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="1rem;" Wrap="FlexWrap.Wrap">
-                            <RadzenButton Text="Export XLS" Icon="grid_on" Click="@(argv => { ExportExcel(BankCountry.RUSSIA); })" />
+                            <RadzenButton Text="Скачать XLS" Icon="grid_on" Click="DownloadRUS" />
                         </RadzenStack>
                     </HeaderTemplate>
                     <Columns>
@@ -113,6 +117,26 @@
 
 
 @functions{
+    private void DownloadKAZ()
+    {
+        ExportExcel(BankCountry.KAZAKHSTAN);
+    }
+    public void DownloadRUS()
+    {
+        ExportExcel(BankCountry.RUSSIA);
+    }
+
+    public async Task DataUpdate()
+    {
+
+        CurrencyRates_CBR = null;
+        CurrencyRates_CBK = null;
+        StateHasChanged();
+        CurrencyRates_CBK = await CurrencyRates.GetExchangeRatesFromCBK();
+        CurrencyRates_CBR = await CurrencyRates.GetExchangeRatesFromCBR();
+        StateHasChanged();
+
+    }
     private void IncrementCount()
     {
         currentCount++;
@@ -124,6 +148,7 @@
     }
     public async Task ExportExcel(BankCountry bc)
     {
+        Console.WriteLine(nameof(bc));
         switch (bc)
         {
             case BankCountry.KAZAKHSTAN: await GenerateAndDownloadExcel(CurrencyRates_CBK, "Национальный Банк Казахстана.xlsx", " .тг"); break;
@@ -157,9 +182,8 @@
             }
 
             var fileBytes = package.GetAsByteArray();
-            var fileUrl = $"data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{Convert.ToBase64String(fileBytes)}";
 
-            await JS.InvokeVoidAsync("saveAsFile", fileUrl, fileName);
+            await JS.InvokeVoidAsync("jsSaveAsFile", fileName, Convert.ToBase64String(fileBytes));
         }
     }
 }
