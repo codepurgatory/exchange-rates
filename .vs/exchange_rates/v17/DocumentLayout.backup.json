@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|solutionrelative:server\\components\\pages\\rates.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|c:\\users\\codepurgatory\\documents\\github\\exchange-rates\\server\\wwwroot\\js\\interop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|solutionrelative:server\\wwwroot\\js\\interop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|c:\\users\\codepurgatory\\documents\\github\\exchange-rates\\server\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|solutionrelative:server\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|c:\\users\\codepurgatory\\documents\\github\\exchange-rates\\server\\wwwroot\\js\\interop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|solutionrelative:server\\wwwroot\\js\\interop.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|c:\\users\\codepurgatory\\documents\\github\\exchange-rates\\server\\tools\\currencyrates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD1C9019-6D32-4D61-971A-D9AC8AEBA37B}|server\\server.csproj|solutionrelative:server\\tools\\currencyrates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +26,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "CurrencyRates.cs",
+              "DocumentMoniker": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\Tools\\CurrencyRates.cs",
+              "RelativeDocumentMoniker": "server\\Tools\\CurrencyRates.cs",
+              "ToolTip": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\Tools\\CurrencyRates.cs",
+              "RelativeToolTip": "server\\Tools\\CurrencyRates.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAAA6wMIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T01:31:35.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "App.razor",
               "DocumentMoniker": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\Components\\App.razor",
               "RelativeDocumentMoniker": "server\\Components\\App.razor",
@@ -34,12 +50,11 @@
               "RelativeToolTip": "server\\Components\\App.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T01:21:19.829Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T01:21:19.829Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "interop.js",
               "DocumentMoniker": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\wwwroot\\js\\interop.js",
               "RelativeDocumentMoniker": "server\\wwwroot\\js\\interop.js",
@@ -47,8 +62,7 @@
               "RelativeToolTip": "server\\wwwroot\\js\\interop.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-06-05T01:09:48.644Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T01:09:48.644Z"
             },
             {
               "$type": "Document",
@@ -58,7 +72,7 @@
               "RelativeDocumentMoniker": "server\\Components\\Pages\\Rates.razor",
               "ToolTip": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\Components\\Pages\\Rates.razor",
               "RelativeToolTip": "server\\Components\\Pages\\Rates.razor",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAAAIsAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADkAAAB2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-05T01:01:08.456Z",
               "EditorCaption": ""

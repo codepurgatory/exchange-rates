@@ -55,7 +55,7 @@
             }
             else
             {
-                <RadzenDataGrid Data="@CurrencyRates_CBK" typeof="CurrencyRate">
+                <RadzenDataGrid Data="@CurrencyRates_CBK" typeof="CurrencyRate" AllowPaging="true" AllowSorting="true">
                     <HeaderTemplate>
                         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="1rem;" Wrap="FlexWrap.Wrap">
                             <RadzenButton Text="Скачать XLS" Icon="grid_on" Click="DownloadKAZ" onclick="DownloadKAZ" />
@@ -86,7 +86,7 @@
             }
             else
             {
-                <RadzenDataGrid Data="@CurrencyRates_CBR" typeof="CurrencyRate">
+                <RadzenDataGrid Data="@CurrencyRates_CBR" typeof="CurrencyRate" AllowPaging="true" AllowSorting="true">
                     <HeaderTemplate>
                         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="1rem;" Wrap="FlexWrap.Wrap">
                             <RadzenButton Text="Скачать XLS" Icon="grid_on" Click="DownloadRUS" />

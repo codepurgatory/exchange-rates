@@ -38,8 +38,7 @@
               "RelativeToolTip": "server\\Tools\\CurrencyRates.cs",
               "ViewState": "AgIAALEAAAAAAAAAAAA6wMIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T01:31:35.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T01:31:35.371Z"
             },
             {
               "$type": "Document",
@@ -51,8 +50,7 @@
               "RelativeToolTip": "server\\Components\\App.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-05T01:21:19.829Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T01:21:19.829Z"
             },
             {
               "$type": "Document",
@@ -64,8 +62,7 @@
               "RelativeToolTip": "server\\wwwroot\\js\\interop.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-06-05T01:09:48.644Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T01:09:48.644Z"
             },
             {
               "$type": "Document",
@@ -75,7 +72,7 @@
               "RelativeDocumentMoniker": "server\\Components\\Pages\\Rates.razor",
               "ToolTip": "C:\\Users\\codepurgatory\\Documents\\GitHub\\exchange-rates\\server\\Components\\Pages\\Rates.razor",
               "RelativeToolTip": "server\\Components\\Pages\\Rates.razor",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAAAA0AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFAAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-05T01:01:08.456Z",
               "EditorCaption": ""
